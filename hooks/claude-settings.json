@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash",
+        "hooks": [ { "type": "command",
+                     "command": "/usr/bin/env python3 /abs/path/swap/stop/gate.py" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Bash",
+        "hooks": [ { "type": "command",
+                     "command": "/usr/bin/env python3 /abs/path/swap/budget/meter.py" },
+                   { "type": "command",
+                     "command": "/usr/bin/env python3 /abs/path/swap/route/cap.py" } ] }
+    ],
+    "Stop": [
+      { "hooks": [ { "type": "command",
+                     "command": "SWAP_WORK=/abs/path/work SWAP_BASELINE=/abs/path/fixtures /usr/bin/env python3 /abs/path/swap/check/gate.py" } ] }
+    ]
+  }
+}

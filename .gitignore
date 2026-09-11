@@ -1,0 +1,20 @@
+# run output, not source
+swap/swaptest/work/
+swap/swaptest/raw-*.json
+swap/budget/spill/*
+!swap/budget/spill/.gitkeep
+swap/stop/HALT
+results*.tsv
+*.results.tsv
+
+# local settings, never committed
+.env
+.env.*
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+
+# os
+.DS_Store

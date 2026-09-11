@@ -1,0 +1,5 @@
+# swap/adapter/models.txt — the only place in this setup that names a vendor.
+# alias   runner   model                    extra flags (optional)
+fast      claude   haiku
+deep      claude   sonnet
+local     codex    gpt-oss:20b              --oss --local-provider ollama

@@ -1,0 +1,20 @@
+# Goes in $CODEX_HOME/config.toml. Not a repo-local .codex/config.toml —
+# there is an open bug where hooks configured there do not fire.
+
+[[hooks.PreToolUse]]
+matcher = "^Bash$"
+
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = '/usr/bin/env python3 /abs/path/swap/stop/gate.py'
+timeout = 30
+statusMessage = "Checking the boundary"
+
+[[hooks.PostToolUse]]
+matcher = "^Bash$"
+
+[[hooks.PostToolUse.hooks]]
+type = "command"
+command = '/usr/bin/env python3 /abs/path/swap/budget/meter.py'
+timeout = 30
+statusMessage = "Metering tool output"

@@ -1,0 +1,6 @@
+Rename this file to HALT and every tool call stops at the next boundary.
+
+    touch swap/stop/HALT      halts
+    rm swap/stop/HALT         resumes
+
+It is a stop, not an undo. Everything already done is still done.
