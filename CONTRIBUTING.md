@@ -6,9 +6,10 @@ that behaves differently on your CLI version, a command that the docs print and
 the binary doesn't have. Open an issue with the output, not a description of the
 output.
 
-**New features are out of scope.** This repo mirrors the book on purpose. A part
-the book doesn't walk you through is a part you'd end up owning without
-understanding, which is the problem the whole thing exists to solve.
+**This tree mirrors the book, one folder per chapter**, so every file here is
+one a reader has already been walked through end to end. Keep that true and a
+fix lands easily. A new part the book never covers is better as your own repo,
+where you can explain it properly.
 
 Before you open a PR:
 

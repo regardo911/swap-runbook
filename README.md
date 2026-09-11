@@ -8,10 +8,9 @@ Companion code to *Your Agent Is More Than the Model*, from
 the paths the book uses.
 
 In plain English: this repo is seven small pieces that sit around whatever AI
-coding agent you already pay for, so you can measure it, cap what it spends, and
-stop it doing something stupid. You'll meet words like *hook* and *adapter* in a
-minute and you don't need them yet. Pick your line below and each folder explains
-its piece when you get there.
+coding agent you already pay for, so you can see what it costs, cap what it
+spends, and stop it doing something stupid. Pick your line below; each folder
+explains its piece when you get there.
 
 ![Seven parts around one replaceable model](docs/images/hero.png)
 
@@ -23,8 +22,10 @@ its piece when you get there.
 ./install.sh
 ```
 
-It prints the four hook blocks with your own absolute paths already in them,
-ready to paste. It touches nothing unless you ask it to twice.
+It reads your machine and prints the four hook blocks with your own absolute
+paths already filled in. Paste them into your agent's settings and every turn
+from then on gets metered, gated and stoppable. Nothing on disk changes until
+you ask it to twice.
 
 **I want to see something run right now, without spending anything.**
 
@@ -91,25 +92,36 @@ and never tell you it fired.
 Python 3.9 or newer and a POSIX shell. Everything here is standard library, so
 there's nothing to install: no manifest, no dependencies.
 
-Three commands call a model, so they need the agent CLI you already pay for and
-they spend your own allowance: `swap/swaptest/run.sh`, `swap/adapter/call.sh` and
-`swap/evalset/run-all.sh`. Everything else: the meter, the store, both gates,
-the pricer, the report, every `check.sh`, and `install.sh`: runs with no key, no
-account and no network.
+**Most of it costs you nothing.** The meter, the store, both gates, the pricer,
+the report, every `check.sh` and `install.sh` run with no key, no account and no
+network, so you can wire the whole harness up and watch it fire before you spend
+a cent.
 
-**Nothing here tests a model's judgment**, and nothing here can. The test suite
-covers the parts that parse, price, meter and gate. Whether a model does good
-work on your jobs is what `swap/evalset/` is for, and only you can run that.
+Three commands do spend your allowance, because they are the three that hand you
+real numbers, and they use the agent CLI you already pay for:
+
+| Command | What you get back |
+|---|---|
+| `swap/swaptest/run.sh <alias>` | one job, one model: pass or fail, tokens, seconds, cost |
+| `swap/adapter/call.sh <alias> …` | the same job on any other model, by changing one word |
+| `swap/evalset/run-all.sh <alias>` | a pass rate across your whole job set, with an interval |
+
+Run the suite first and you know the harness works before you point it at
+anything that costs money:
 
 ```
 python3 -m unittest discover -s tests
 ```
 
+Then `swap/evalset/` answers the question you bought the book for: **is the new
+model actually better on *your* jobs**, as a number you can put in front of
+someone.
+
 ## Contributing
 
 Fixes welcome, especially where something here disagrees with a real machine.
-New features are out of scope. This mirrors the book on purpose, and a part the
-book doesn't walk you through is a part you'd own without understanding.
+This tree mirrors the book, so every part you copy is one you have already been
+walked through end to end.
 
 ## License
 
